@@ -10,7 +10,7 @@
     <meta property="og:title" content="王先生">
     <meta property="og:description" content="先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
     <meta property="og:image" content="https://www.wangxiansheng.com/images/logo.png">
-    <meta property="og:url" content="https://www.wxsw.com">
+    <meta property="og:url" content="https://wxsw.com">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="https://www.wangxiansheng.com/images/logo.png" type="image/png">
 
@@ -204,22 +204,56 @@
             box-shadow: var(--box-shadow);
         }
         
-        .contact-item {
-            display: flex;
-            align-items: center;
+        .contact-form {
+            margin-bottom: 2rem;
         }
         
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: var(--primary-color);
-            font-size: 1.25rem;
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25);
+            outline: none;
+        }
+        
+        .btn-full {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            width: 100%;
+            cursor: pointer;
+        }
+        
+        .btn-full:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .contact-email {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
         }
         
         /* 页脚 */
@@ -258,16 +292,6 @@
             .profile-description {
                 font-size: 1.1rem;
             }
-            
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
         }
     </style>
 </head>
@@ -291,7 +315,7 @@
                         <a class="nav-link" href="#projects">项目经验</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">联系方式</a>
+                        <a class="nav-link" href="#contact">联系我</a>
                     </li>
                 </ul>
             </div>
@@ -403,29 +427,32 @@
         </div>
     </section>
 
-    <!-- 联系方式部分 -->
+    <!-- 联系我部分 -->
     <section id="contact" class="contact-section section-padding">
         <div class="container">
-            <h2 class="section-title">联系方式</h2>
+            <h2 class="section-title">联系我</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h3>电子邮箱</h3>
-                            <p><a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
-                        </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactInfo">联系方式</label>
+                                <input type="text" class="form-control" id="contactInfo" name="contactInfo" placeholder="请输入手机号或邮箱" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">留言内容</label>
+                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="请输入您的留言" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-full" title="提交留言给王先生">提交留言</button>
+                            <div id="formMessage"></div>
+                        </form>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h3>联系电话</h3>
-                            <p>0512-57828333</p>
-                        </div>
+                    <div class="contact-email">
+                        <p>电子邮箱：<a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
                     </div>
                 </div>
             </div>
@@ -452,6 +479,39 @@
                         behavior: 'smooth'
                     });
                 }
+            });
+        });
+
+        // 表单提交
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const contactInfo = document.getElementById('contactInfo').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const formMessage = document.getElementById('formMessage');
+
+            if(!name || !contactInfo || !message) {
+                formMessage.textContent = "请填写所有字段";
+                formMessage.className = "text-danger mt-3";
+                return;
+            }
+
+            fetch('https://lianxi.wangxiansheng.com/api.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, contactInfo, message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessage.textContent = data.message || "提交成功！";
+                formMessage.className = "text-success mt-3";
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                console.error(error);
+                formMessage.textContent = "提交失败，请稍后再试";
+                formMessage.className = "text-danger mt-3";
             });
         });
     </script>
