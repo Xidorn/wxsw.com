@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>王先生</title>
-    <meta name="description" content="先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
+    <title>王先生 - 网络营销专家</title>
+    <meta name="description" content="王先生，互联网从业者，十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作。">
     <meta name="keywords" content="王先生, 网络营销, SEO, SEM, 网站开发, 数据分析, WordPress, 营销推广">
     <meta name="author" content="王先生">
     <meta property="og:title" content="王先生">
@@ -15,81 +15,520 @@
     <link rel="icon" href="https://www.wangxiansheng.com/images/logo.png" type="image/png">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a73e8; /* 主色调 蓝色 */
-            --light-bg: #f1f5f9;
+            --primary-color: #1a73e8;
+            --primary-dark: #0d47a1;
+            --primary-light: #e3f2fd;
+            --secondary-color: #f57c00;
             --dark-bg: #0d1b2a;
+            --light-bg: #f8f9fa;
             --text-color: #212529;
+            --text-light: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
         }
-        header, footer {
-            background-color: var(--primary-color);
-        }
-        section.bg-light {
-            background-color: var(--light-bg);
-        }
+        
         body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-color) !important;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        /* 头部区域 */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.05"><polygon points="1000,0 1000,100 0,100"></polygon></svg>');
+            background-size: cover;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .hero-cta {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* 通用部分样式 */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        /* 关于我部分 */
+        .about-section {
+            background-color: white;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
             color: var(--text-color);
         }
-        a {
-            color: var(--primary-color);
+        
+        /* 技能部分 */
+        .skills-section {
+            background-color: var(--light-bg);
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .skill-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            text-align: center;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        /* 项目经验部分 */
+        .projects-section {
+            background-color: white;
+        }
+        
+        .project-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        /* 联系方式部分 */
+        .contact-section {
+            background-color: var(--light-bg);
+        }
+        
+        .contact-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 0.75rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            
+            .section-padding {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header class="text-white py-4">
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">王先生</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">关于我</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">专业技能</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">项目经验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系方式</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header class="hero-section">
         <div class="container text-center">
-            <h1 class="fw-bold mb-0">王先生</h1>
-            <p class="mb-0">十余年营销推广实战经验，只专注于网络营销和搜索引擎优化推广工作</p>
+            <h1 class="hero-title">王先生</h1>
+            <p class="hero-subtitle">十余年营销推广实战经验，专注于网络营销和搜索引擎优化推广工作</p>
+            <a href="#contact" class="hero-cta">联系我</a>
         </div>
     </header>
 
-    <section class="py-5">
+    <!-- 关于我部分 -->
+    <section id="about" class="about-section section-padding">
         <div class="container">
-            <h2 class="mb-4">关于我</h2>
-            <p>在SEO领域，我曾凭借敏锐的行业洞察力，取得了多项突破性成绩：4天内实现从域名注册到万级IP的快速增长；2个月零10天内成功将网站权重从0提升至6；新站运营方面，两个月内将IP突破3K，第3个月突破万IP，并在此基础上形成日均万IP的稳定流量，峰值单日流量更是突破5万IP。同时，我创下了1天内借势热点将网站访问IP从0提升至4K+的爆发性增长案例；此外，通过研究Bing搜索引擎，也实现了在4天内突破4K+ IP的成绩。</p>
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>在SEO领域，我曾凭借敏锐的行业洞察力，取得了多项突破性成绩：4天内实现从域名注册到万级IP的快速增长；2个月零10天内成功将网站权重从0提升至6；新站运营方面，两个月内将IP突破3K，第3个月突破万IP，并在此基础上形成日均万IP的稳定流量，峰值单日流量更是突破5万IP。同时，我创下了1天内借势热点将网站访问IP从0提升至4K+的爆发性增长案例；此外，通过研究Bing搜索引擎，也实现了在4天内突破4K+ IP的成绩。</p>
 
-            <p>在SEM领域，我曾通过独特的优化策略，持续超额完成目标任务（超200%～400%），精确提升客户获取数量和质量。核心数据方面，创意、展示、点击、转化率等指标领跑95%-99%的同行。同时，将关键词点击均价和线索成本保持在低于95%的同行水平，成功构建了以低成本撬动高质量线索的可持续获客模式。</p>
+                    <p>在SEM领域，我曾通过独特的优化策略，持续超额完成目标任务（超200%～400%），精确提升客户获取数量和质量。核心数据方面，创意、展示、点击、转化率等指标领跑95%-99%的同行。同时，将关键词点击均价和线索成本保持在低于95%的同行水平，成功构建了以低成本撬动高质量线索的可持续获客模式。</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="bg-light py-5">
+    <!-- 专业技能部分 -->
+    <section id="skills" class="skills-section section-padding">
         <div class="container">
-            <h2 class="mb-4">专业技能</h2>
-            <ul>
-                <li>营销推广：SEO、SEM，具有丰富优化和推广经验，帮助多家企业提升品牌曝光和转化。</li>
-                <li>数据分析：擅长运用数据分析工具挖掘用户行为与需求，为产品优化和营销策略提供数据支撑。</li>
-                <li>前端技术：熟练掌握HTML、CSS，能够基于Bootstrap框架独立开发和优化网站前端。</li>
-                <li>后端技术：擅长PHP，特别是在WordPress平台上开发和定制网站。</li>
-                <li>开发工具：熟悉Sublime Text、Dreamweaver等开发工具，快速构建和调试项目。</li>
-                <li>域名相关：精通域名管理，包括注册、DNS解析配置和SSL证书部署，确保网站安全稳定。</li>
-                <li>服务器：擅长Linux（CentOS、Debian、Ubuntu）及Windows Server运维，具备独立部署和维护Web环境能力。</li>
-            </ul>
+            <h2 class="section-title">专业技能</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="skill-title">营销推广</h3>
+                        <p>SEO、SEM，具有丰富优化和推广经验，帮助多家企业提升品牌曝光和转化。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="skill-title">数据分析</h3>
+                        <p>擅长运用数据分析工具挖掘用户行为与需求，为产品优化和营销策略提供数据支撑。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-title">前端技术</h3>
+                        <p>熟练掌握HTML、CSS，能够基于Bootstrap框架独立开发和优化网站前端。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 class="skill-title">后端技术</h3>
+                        <p>擅长PHP，特别是在WordPress平台上开发和定制网站。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="skill-title">开发工具</h3>
+                        <p>熟悉Sublime Text、Dreamweaver等开发工具，快速构建和调试项目。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="skill-title">域名与服务器</h3>
+                        <p>精通域名管理和服务器运维，具备独立部署和维护Web环境能力。</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="py-5">
+    <!-- 项目经验部分 -->
+    <section id="projects" class="projects-section section-padding">
         <div class="container">
-            <h2 class="mb-4">项目经验</h2>
-            <p>独立开发并维护多个WordPress项目，提供主题定制和功能扩展服务。为客户提供SEO和SEM策略咨询，帮助客户提升网站流量和转化率。管理并优化个人项目网站，涵盖律师、工程、家装、家政、教育、金融、科技等多个行业，包括网站建设、内容营销和品牌推广。</p>
+            <h2 class="section-title">项目经验</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">WordPress项目开发与维护</h3>
+                            <p>独立开发并维护多个WordPress项目，提供主题定制和功能扩展服务。为客户提供SEO和SEM策略咨询，帮助客户提升网站流量和转化率。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <div class="project-content">
+                            <h3 class="project-title">多行业网站管理</h3>
+                            <p>管理并优化个人项目网站，涵盖律师、工程、家装、家政、教育、金融、科技等多个行业，包括网站建设、内容营销和品牌推广。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="bg-light py-5">
+    <!-- 联系方式部分 -->
+    <section id="contact" class="contact-section section-padding">
         <div class="container">
-            <h2 class="mb-4">联系方式</h2>
-            <p>电子邮箱：<a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
-            <p>联系电话：0512-57828333</p>
+            <h2 class="section-title">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>电子邮箱</h3>
+                            <p><a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>联系电话</h3>
+                            <p>0512-57828333</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="text-center text-white py-3">
-        <p class="mb-0">© 2025 <a href="https://www.wangxiansheng.com" class="text-white text-decoration-underline">王先生</a> 版权所有</p>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-3">© 2025 <a href="https://www.wangxiansheng.com" class="text-white text-decoration-underline">王先生</a> 版权所有</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '0.5rem 0';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.padding = '1rem 0';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
