@@ -21,7 +21,6 @@
             --primary-color: #1a73e8;
             --primary-dark: #0d47a1;
             --primary-light: #e3f2fd;
-            --secondary-color: #f57c00;
             --dark-bg: #0d1b2a;
             --light-bg: #f8f9fa;
             --text-color: #212529;
@@ -35,7 +34,6 @@
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
         }
         
         /* 导航栏 */
@@ -43,7 +41,6 @@
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 1rem 0;
-            transition: var(--transition);
         }
         
         .navbar-brand {
@@ -56,7 +53,6 @@
             font-weight: 500;
             color: var(--text-color) !important;
             margin: 0 0.5rem;
-            transition: var(--transition);
         }
         
         .nav-link:hover {
@@ -94,16 +90,6 @@
         .about-section {
             background-color: white;
             padding-top: 4rem;
-        }
-        
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-color);
         }
         
         .profile-header {
@@ -155,7 +141,6 @@
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            text-align: center;
         }
         
         /* 项目经验部分 */
@@ -165,7 +150,6 @@
         
         .project-card {
             border-radius: var(--border-radius);
-            overflow: hidden;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
             height: 100%;
@@ -184,17 +168,11 @@
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            text-align: center;
         }
         
-        /* 联系方式部分 */
+        /* 联系我部分 */
         .contact-section {
             background-color: var(--light-bg);
-        }
-        
-        .contact-content {
-            max-width: 900px;
-            margin: 0 auto;
         }
         
         .contact-info {
@@ -224,7 +202,6 @@
             border: 1px solid #ddd;
             border-radius: var(--border-radius);
             font-size: 1rem;
-            transition: var(--transition);
         }
         
         .form-control:focus {
@@ -240,14 +217,12 @@
             padding: 0.75rem 2rem;
             border-radius: var(--border-radius);
             font-weight: 600;
-            transition: var(--transition);
             width: 100%;
             cursor: pointer;
         }
         
         .btn-full:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
         }
         
         .contact-email {
@@ -262,17 +237,6 @@
             color: white;
             padding: 3rem 0 1.5rem;
             text-align: center;
-        }
-        
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: white;
         }
         
         /* 响应式调整 */
@@ -328,13 +292,6 @@
             <div class="profile-header">
                 <h1 class="profile-name">王先生</h1>
                 <p class="profile-description">十余年营销推广实战经验，专注于网络营销和搜索引擎优化推广工作</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>在SEO领域，我曾凭借敏锐的行业洞察力，取得了多项突破性成绩：4天内实现从域名注册到万级IP的快速增长；2个月零10天内成功将网站权重从0提升至6；新站运营方面，两个月内将IP突破3K，第3个月突破万IP，并在此基础上形成日均万IP的稳定流量，峰值单日流量更是突破5万IP。同时，我创下了1天内借势热点将网站访问IP从0提升至4K+的爆发性增长案例；此外，通过研究Bing搜索引擎，也实现了在4天内突破4K+ IP的成绩。</p>
-
-                    <p>在SEM领域，我曾通过独特的优化策略，持续超额完成目标任务（超200%～400%），精确提升客户获取数量和质量。核心数据方面，创意、展示、点击、转化率等指标领跑95%-99%的同行。同时，将关键词点击均价和线索成本保持在低于95%的同行水平，成功构建了以低成本撬动高质量线索的可持续获客模式。</p>
-                </div>
             </div>
         </div>
     </section>
@@ -431,29 +388,27 @@
     <section id="contact" class="contact-section section-padding">
         <div class="container">
             <h2 class="section-title">联系我</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">姓名</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactInfo">联系方式</label>
-                                <input type="text" class="form-control" id="contactInfo" name="contactInfo" placeholder="请输入手机号或邮箱" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">留言内容</label>
-                                <textarea class="form-control" id="message" name="message" rows="4" placeholder="请输入您的留言" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-full" title="提交留言给王先生">提交留言</button>
-                            <div id="formMessage"></div>
-                        </form>
-                    </div>
-                    <div class="contact-email">
-                        <p>电子邮箱：<a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
-                    </div>
+            <div class="contact-info">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="请输入您的姓名" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactInfo">联系方式</label>
+                            <input type="text" class="form-control" id="contactInfo" name="contactInfo" placeholder="请输入手机号或邮箱" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" placeholder="请输入您的留言" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-full" title="提交留言给王先生">提交留言</button>
+                        <div id="formMessage"></div>
+                    </form>
+                </div>
+                <div class="contact-email">
+                    <p>电子邮箱：<a href="mailto:lianxi@wangxiansheng.com">lianxi@wangxiansheng.com</a></p>
                 </div>
             </div>
         </div>
