@@ -15,6 +15,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="https://www.wangxiansheng.com/images/logo.png" type="image/png">
 
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --primary-text: #1d1d1f;
@@ -114,6 +116,14 @@
             transition: all 0.4s cubic-bezier(0.15, 1, 0.3, 1);
         }
 
+        /* 技能图标样式 */
+        .skill-icon {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            width: 32px;
+            height: 32px;
+        }
+
         .skill-item:hover {
             border-color: rgba(0, 113, 227, 0.3);
             transform: translateY(-8px);
@@ -146,7 +156,7 @@
             justify-content: center;
         }
 
-        .project-box h4 { font-size: 2.2rem; margin-bottom: 20px; letter-spacing: -1px; }
+        .project-box h4 { font-size: 2.2rem; margin-bottom: 20px; letter-spacing: -1px; display: flex; align-items: center; gap: 15px; }
         .project-box p { font-size: 1.1rem; color: var(--secondary-text); margin-bottom: 30px; }
 
         .decoration-box {
@@ -154,7 +164,12 @@
             background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
             border-radius: 32px;
             min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        /* 装饰框内的淡雅图标 */
+        .decoration-box i { color: #fff; width: 80px; height: 80px; stroke-width: 1px; }
 
         .industry-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
@@ -174,6 +189,9 @@
         }
 
         .contact-wrap h2 { font-size: 3.5rem; line-height: 1.1; letter-spacing: -2px; margin-bottom: 30px; }
+
+        .contact-info-item { display: flex; align-items: center; gap: 12px; margin-top: 20px; color: var(--primary-text); font-weight: 600; }
+        .contact-info-item i { color: var(--secondary-text); width: 20px; }
 
         input, textarea {
             width: 100%;
@@ -198,6 +216,9 @@
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .submit-btn:hover { background: var(--accent-color); transform: scale(1.02); }
@@ -213,15 +234,8 @@
             text-align: center;
         }
         
-        /* 底部链接样式 */
-        footer a {
-            color: var(--secondary-text);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: var(--accent-color);
-        }
+        footer a { color: var(--secondary-text); text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-color); }
 
         @media (max-width: 992px) {
             .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
@@ -258,26 +272,32 @@
             <span class="section-label">Expertise</span>
             <div class="skills-grid">
                 <div class="skill-item">
+                    <i data-lucide="trending-up" class="skill-icon"></i>
                     <h3>营销推广</h3>
                     <p>SEO、SEM，具有丰富优化和推广经验，帮助多家企业提升品牌曝光和转化。</p>
                 </div>
                 <div class="skill-item">
+                    <i data-lucide="bar-chart-3" class="skill-icon"></i>
                     <h3>数据分析</h3>
                     <p>擅长运用数据分析工具挖掘用户行为与需求，为产品优化和营销策略提供数据支撑。</p>
                 </div>
                 <div class="skill-item">
+                    <i data-lucide="code-2" class="skill-icon"></i>
                     <h3>前端技术</h3>
                     <p>熟练掌握HTML、CSS，能够基于Bootstrap框架独立开发和优化网站前端。</p>
                 </div>
                 <div class="skill-item">
+                    <i data-lucide="database" class="skill-icon"></i>
                     <h3>后端技术</h3>
                     <p>擅长PHP，特别是在WordPress平台上开发和定制网站。</p>
                 </div>
                 <div class="skill-item">
+                    <i data-lucide="terminal" class="skill-icon"></i>
                     <h3>开发工具</h3>
                     <p>熟悉Sublime Text、Dreamweaver等开发工具，快速构建和调试项目。</p>
                 </div>
                 <div class="skill-item">
+                    <i data-lucide="server" class="skill-icon"></i>
                     <h3>域名与服务器</h3>
                     <p>精通域名管理和服务器运维，具备独立部署和维护Web环境能力。</p>
                 </div>
@@ -288,21 +308,21 @@
             <span class="section-label">Case Studies</span>
             <div class="project-row">
                 <div class="project-box">
-                    <h4>WordPress项目开发与维护</h4>
+                    <h4><i data-lucide="layout"></i> WordPress项目开发</h4>
                     <p>独立开发并维护多个WordPress项目，提供主题定制和功能扩展服务。为客户提供SEO和SEM策略咨询，帮助客户提升网站流量和转化率。</p>
                 </div>
-                <div class="decoration-box"></div>
+                <div class="decoration-box"><i data-lucide="layout"></i></div>
             </div>
             <div class="project-row">
                 <div class="project-box">
-                    <h4>多行业网站管理与增长</h4>
+                    <h4><i data-lucide="globe"></i> 多行业网站增长</h4>
                     <p>管理并优化个人项目网站，涵盖全案建设、内容营销和品牌推广，为多行业赋能。</p>
                     <div class="industry-tags">
                         <span class="tag">律师</span><span class="tag">工程</span><span class="tag">家装</span>
                         <span class="tag">家政</span><span class="tag">教育</span><span class="tag">金融</span><span class="tag">科技</span>
                     </div>
                 </div>
-                <div class="decoration-box"></div>
+                <div class="decoration-box"><i data-lucide="rocket"></i></div>
             </div>
         </section>
 
@@ -312,15 +332,19 @@
                 <div>
                     <h2>聊一聊合作，<br>开启增长。</h2>
                     <p style="color: var(--secondary-text); font-size: 1.2rem;">期待与您探讨业务数字化增长的可能性。</p>
-                    <p style="color: var(--primary-text); font-weight: 600; margin-top: 20px;">
-                        Email: lianxi@wangxiansheng.com
-                    </p>
+                    <div class="contact-info-item">
+                        <i data-lucide="mail"></i>
+                        <span>lianxi@wangxiansheng.com</span>
+                    </div>
                 </div>
                 <form id="contactForm">
                     <input type="text" id="name" placeholder="您的姓名">
                     <input type="text" id="contactInfo" placeholder="联系方式">
                     <textarea id="message" rows="4" placeholder="您想聊的内容"></textarea>
-                    <button type="submit" class="submit-btn">提交需求</button>
+                    <button type="submit" class="submit-btn">
+                        <span>提交需求</span>
+                        <i data-lucide="send" style="width:18px"></i>
+                    </button>
                     <div id="formMessage"></div>
                 </form>
             </div>
@@ -334,6 +358,9 @@
     </footer>
 
     <script>
+        // 初始化图标
+        lucide.createIcons();
+
         // 表单提交逻辑
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
