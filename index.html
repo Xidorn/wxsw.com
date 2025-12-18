@@ -116,7 +116,6 @@
             transition: all 0.4s cubic-bezier(0.15, 1, 0.3, 1);
         }
 
-        /* 技能图标样式 */
         .skill-icon {
             color: var(--accent-color);
             margin-bottom: 20px;
@@ -168,7 +167,6 @@
             align-items: center;
             justify-content: center;
         }
-        /* 装饰框内的淡雅图标 */
         .decoration-box i { color: #fff; width: 80px; height: 80px; stroke-width: 1px; }
 
         .industry-tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -237,11 +235,36 @@
         footer a { color: var(--secondary-text); text-decoration: none; transition: 0.3s; }
         footer a:hover { color: var(--accent-color); }
 
+        /* ----------------------------------------------------
+           手机端自适应逻辑 - 深度缩减间距
+        ---------------------------------------------------- */
         @media (max-width: 992px) {
-            .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+            .nav-container { padding: 0 20px; }
+            .container { padding: 0 20px; }
+            
+            /* 手机端About顶部大幅缩减 */
+            .hero { padding: 40px 0 30px; } 
+            .hero h1 { font-size: 3.2rem; margin-bottom: 12px; }
+            .hero p { font-size: 1.2rem; }
+
+            /* 技能板块间距缩减 */
+            .skills-grid { margin-top: 20px; margin-bottom: 40px; grid-template-columns: 1fr; gap: 16px; }
+            .skill-item { padding: 25px; border-radius: 20px; }
+
+            /* 项目板块间距缩减 */
+            .project-section { padding-bottom: 40px; }
+            .project-row { margin-top: 15px; margin-bottom: 15px; }
             .project-row, .project-row:nth-child(even) { flex-direction: column; }
-            .decoration-box { display: none; }
-            .hero h1 { font-size: 4rem; }
+            .project-box { padding: 35px 25px; border-radius: 24px; }
+            .project-box h4 { font-size: 1.7rem; }
+            .decoration-box { display: none; } 
+
+            /* 联系板块间距缩减 */
+            .contact-wrap { grid-template-columns: 1fr; gap: 30px; padding: 40px 0; }
+            .contact-wrap h2 { font-size: 2.2rem; margin-bottom: 15px; }
+            
+            .section-label { margin-bottom: 8px; }
+            footer { padding: 30px 0; }
         }
     </style>
 </head>
@@ -358,10 +381,8 @@
     </footer>
 
     <script>
-        // 初始化图标
         lucide.createIcons();
 
-        // 表单提交逻辑
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
