@@ -68,31 +68,29 @@ textarea{
 
 .mt-14{margin-top:14px}
 
-
 /* 修复 hero-summary 双栏布局 */
 .site-page .hero-summary{
-  display: grid;
+  display:grid;
 }
 
 .home-page .hero-summary{
-  grid-template-columns: 1.2fr .8fr;
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns:1.2fr .8fr;
+  gap:14px;
+  margin-top:18px;
 }
 
 .service-page .hero-summary{
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 20px;
-  align-items: stretch;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+  margin-top:20px;
+  align-items:stretch;
 }
 
 /* 恢复联系按钮区留白 */
 .home-page .contact-links,
 .contact-page .contact-links{
-  margin-top: 12px;
+  margin-top:12px;
 }
-
 
 /* ===== Shared site pages: home / contact / geo / seo / sem ===== */
 .site-page{
