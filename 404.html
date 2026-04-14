@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>404 - 页面不存在</title>
+  <meta name="description" content="抱歉，你访问的页面不存在，系统将在 30 秒后自动跳转到王先生官方网站。" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="theme-color" content="#2563eb" />
+
+    <link rel="stylesheet" href="/static/style.css" />
+
+</head>
+<body class="page-404 error-page">
+  <div class="wrap">
+    <div class="card">
+      <div class="eyebrow">404 Not Found</div>
+
+      <div class="code">404</div>
+      <h1>抱歉，你访问的页面不存在</h1>
+
+      <p class="desc">
+        你访问的链接可能已失效、地址输入错误，或者页面已经被移动。
+        系统将在 <strong>30 秒</strong> 后自动跳转到王先生官方网站。
+      </p>
+
+      <div class="countdown">
+        剩余 <strong id="count">30</strong> 秒后自动跳转到
+        <strong>www.wangxiansheng.com</strong>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.wangxiansheng.com">立即前往官网</a>
+        <a class="btn btn-light" href="/">返回首页</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span>
+      <a href="https://www.wangxiansheng.com">www.wangxiansheng.com</a>
+    </div>
+  </div>
+
+  <script>
+    const targetUrl = "https://www.wangxiansheng.com";
+    let seconds = 30;
+    const countEl = document.getElementById("count");
+    const yearEl = document.getElementById("year");
+
+    yearEl.textContent = new Date().getFullYear();
+
+    const timer = setInterval(() => {
+      seconds -= 1;
+      countEl.textContent = seconds;
+
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = targetUrl;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
